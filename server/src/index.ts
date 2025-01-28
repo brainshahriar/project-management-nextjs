@@ -4,6 +4,7 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 import helmet from 'helmet';
 import morgan from 'morgan';
+import projectRoutes from './routes/projectRoutes';
 
 // route imports
 
@@ -19,9 +20,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 
 //routes
-app.get('/', (req, res) => {
-    res.send('this is home route');
-});
+app.use("/api", projectRoutes);
 
 //server
 const port = process.env.PORT || 5000;
